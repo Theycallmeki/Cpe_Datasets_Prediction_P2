@@ -1,0 +1,31 @@
+Month,Item,Quantity Sold,Price
+January,Rice,150,10
+January,Instant Noodles,120,15
+February,Canned Sardines,140,12
+February,Cooking Oil,130,25
+March,Soy Sauce,110,8
+March,Toilet Paper,100,5
+April,Soft Drinks,180,20
+April,Ice Cream,200,25
+May,Eggs,160,12
+May,Hotdogs,140,18
+June,Pancit Canton,155,10
+June,Bread,150,7
+July,Canned Tuna,135,20
+July,Coffee,165,30
+August,Vinegar,125,9
+August,Soap,180,6
+September,Rice,170,10
+September,Canned Corned Beef,150,14
+October,Chocolate,200,40
+October,Milk,190,12
+November,Flour,160,18
+November,Sugar,150,15
+December,Ham,250,50
+December,Cheese,220,45
+December,Spaghetti Sauce,240,35
+December,Pasta,230,25
+December,Fruit Cocktail,210,20
+December,Mayonnaise,200,18
+December,Condensed Milk,190,16
+December,Cream,180,22
