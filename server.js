@@ -9,36 +9,42 @@ const port = 3000;
 // Path to the CSV file
 const filePath = path.join(__dirname, 'grocery_sales.csv');
 
-// Object to store data by month
+// Object to store detailed sales data by month
 const salesByMonth = {};
 
-// Read and parse the CSV file
+// Parse the CSV
 fs.createReadStream(filePath)
   .pipe(csv())
   .on('data', (row) => {
-    const { month, item } = row;
-    
-    // Initialize month if not already in the object
+    const month = row.Month;
+    const item = row.Item;
+    const quantity = parseInt(row['Quantity Sold']);
+    const price = parseFloat(row.Price);
+
     if (!salesByMonth[month]) {
       salesByMonth[month] = [];
     }
 
-    // Add the item to the month
-    salesByMonth[month].push(item);
+    salesByMonth[month].push({
+      item,
+      quantity,
+      price,
+      total: quantity * price
+    });
   })
   .on('end', () => {
-    console.log('CSV file processed and data is available for the HTML page.');
+    console.log('CSV file processed with detailed sales data.');
   });
 
-// Serve static files from the 'screen' directory
+// Serve static files from the "screen" folder
 app.use(express.static(path.join(__dirname, 'screen')));
 
-// Define a route to get food sold by month
+// API endpoint
 app.get('/data', (req, res) => {
   res.json(salesByMonth);
 });
 
-// Start the server
+// Start server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
